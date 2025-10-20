@@ -1,31 +1,15 @@
-Requerimientos
-1. Implementa un Context que te permita manejar el carrito de compras de la
-aplicación. (2 puntos)
+1. Implementa useParams para obtener el id de la pizza en la página de Pizza.jsx. Con el id obtenido, realiza una petición a la API para obtener la información de la pizza y mostrarla en la página. (2 puntos)
+   Tips: Puedes además implementar Link en el componente CardPizza.jsx para redirigir a la página de Pizza.jsx con el id de la pizza.
+   R. Realizado
 
--Se creó CartContext con estado global cart y funciones: addToCart, removeFromCart, increment, decrement, y total. Todo envuelto con CartProvider en main.jsx.
+2. Crea unUserContext para almacenar el token (simulado) que estamos utilizando en el Navbar.jsx, Por ahora este context tiene que tener las siguientes características: ○ Unestadoquealmaceneel token, por defecto, estará en true. ○ Unmétodologoutquecambieel estado del token a false. (2 puntos)
+R.Realizado
 
-2. En el Navbar consume el Cart Context para mostrar el precio total de los productos
-en el carrito. (2 puntos)
+3. Utiliza el UserContext en el Navbar.jsx, al hacer click en el botón de logout, se debe ejecutar el método logout. (2 puntos) Tips: Recuerda que cuando el token es true, debe mostrar los botones de: Profile, Logout. Cuando el token es false, debe mostrar los botones de: Login, Register. HomeyTotal siempre deben estar visibles.
+R.Realizado
 
-- El componente Navigation consume el CartContext con useContext y muestra el total actualizado en un botón azul con formato CLP.
+4. Utiliza el UserContext en la página de Cart.jsx, deshabilita el botón "pagar" en caso de que el token sea false. (1 punto)
+R.Realizado
 
-3. Consume el Cart Context para que el usuario pueda agregar productos al carrito
-desde la página de Home (botón añadir de cada card). (2 puntos)
-
-- En Home.jsx, se usa useContext(CartContext) y se pasa onAdd={() => addToCart(pizza)} a cada CardPizza. El botón “Añadir” agrega correctamente al carrito.
-
-4. En la página Cart muestra los productos que el usuario ha agregado al carrito
-(utilizando Cart Context), permite agregar y eliminar productos del carrito. (2 puntos)
-
-- En Cart.jsx, se consumen los datos desde CartContext y se muestran en una tabla con imagen, nombre, precio, cantidad, subtotal y botones +, –, y 🗑 para modificar o eliminar.
-
-5. El total de la compra debe ser calculado y mostrado en la página Cart, además este
-tiene que ser el mismo que se muestra en el navbar. (2 puntos)
-
-- El total se calcula globalmente en el contexto con reduce() y se actualiza automáticamente en Navbar y Cart al modificar el carrito.
-
-6. Puedes llevar el consumo de las pizzas (fetch de Home y Pizza) a un Context.
-(opcional)
--Se implementó PizzaContext con fetch centralizado. Home.jsx y otras páginas pueden acceder a las pizzas desde el contexto con useContext(PizzaContext).
-
-se realizan algunos ajustes no solicitados, por ejemplo que el boton "añadir" cambie de color
+5. Implementa la ruta protegida para "/profile". Si el token es false, redirige a "/login". Además, si el token es true, los usuarios no deberían poder acceder a la página de login y register (los puedes redirigir al home). (3 puntos)
+R.Realizado
